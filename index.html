@@ -8,8 +8,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+	 crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="dist/jquery.convform.css">
-	<link rel="stylesheet" type="text/css" href="demo.css">
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
@@ -18,26 +20,44 @@
 	<div class="container">
 		<div class="fixed-bottom float-right display-block">
 			<div class="dropdown">
-				<button class="btn btn-secondary dropdown-toggle" type="button" id="bot-button" data-toggle="dropdown"
-				 aria-haspopup="true" aria-expanded="false">
-					Dropdown
+				<button class="bubble-chat bot-button" onclick="toggle_visibility('bot-container');">
+					<svg class="bubble-ico" id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.12 39.1">
+						<defs>
+							<style>.cls-1{fill:#fff;}.cls-2{fill:#192b67;}.cls-3{fill:#151c5a;}</style>
+						</defs>
+						<title>chatbot-icon</title>
+						<path class="cls-1" d="M28.06,0h-14A14.07,14.07,0,0,0,0,14.06v8.32A14.06,14.06,0,0,0,14.06,36.44h14a14.83,14.83,0,0,0,2.51-.23,24,24,0,0,0,3.92,2.89c.51,0,.63-.64.63-.64V34.53a14.06,14.06,0,0,0,7-12.15V14.06A14.07,14.07,0,0,0,28.06,0Z" />
+						<rect class="cls-2" x="29.91" y="15.51" width="6.77" height="7.26" rx="3.38" />
+						<rect class="cls-2" x="6.3" y="15.51" width="6.77" height="7.26" rx="3.38" />
+						<path class="cls-3" d="M17.53,22.22s0,0,0,0a4.15,4.15,0,0,0,8.29,0s0,0,0,0Z" />
+					</svg>
 				</button>
-				<div id="bot-container" class="dropdown-menu" aria-labelledby="bot-button">
+
+
+				<div id="bot-container" class="shadow-sm bg-white rounded" style="display: none">
 					<div class="card no-border">
 						<div id="chat" class="conv-form-wrapper">
-							<h4>¡Bienvenido, Soy Plazbot!</h4>
+							<ul class="list-unstyled header">
+								<li><i class="fa fa-chevron-left"></i></li>
+								<li class="plazbot-header"></li>
+								<li class="header-txt">
+									<div class="brand-txt"><i>PlazBot</i></div>
+									<div>¿Considerando PlazBot para tu negocio?</div>
+								</li>
+							</ul>
+							<!--<h4>¡Bienvenido, Soy Plazbot!</h4>
 							<p>Nos dedicamos a crear y entrenar Chatbots para empresas, de comunicación efectiva con el target de cliente
 								que
-								tenga tu negocio.</p>
+								tenga tu negocio.</p>-->
 
 							<form action="" method="GET" class="hidden">
 
-								<select data-conv-question="Iniciar conversación con el equipo" name="first-question">
+								<select data-conv-question='<div class="pb-user-txt">Iniciar conversación con el equipo</div>' name="first-question">
 
 
 									<option value="yes">Nueva conversación</option>
 								</select>
-								<select name="multi[]" data-conv-question="¡Hola! Qué bueno verte por	aquí. Te doy algunas opciones para conversar, puedes preguntarme lo que quieras."
+								<select name="multi[]" data-conv-question='<div class="pb-user-txt highlight">¡Hola! Qué bueno verte por	aquí.</div> <div class="pb-user-txt">Te doy algunas opciones para conversar, puedes preguntarme lo que quieras.</div>'
 								 multiple>
 									<option value="Quiero PlazBot">Quiero PlazBot</option>
 									<option value="Busco información">Busco información</option>
@@ -54,7 +74,8 @@
 								<div data-conv-fork="quiero">
 									<div data-conv-case="Ver otros chatbots creados por plazma">
 
-										<input type="text" data-conv-question='PlazBot creó los siguientes chatbots' data-no-answer="true">
+										<input type="text" data-conv-question='<div class="pb-user-txt">PlazBot creó los siguientes chatbots:</div>'
+										 data-no-answer="true">
 
 									</div>
 
@@ -62,63 +83,75 @@
 
 								<select data-conv-question='
 								<div>
-										<section class="carousel slide" data-ride="carousel" id="postsCarousel">
+										<section class="carousel slide" data-ride="carousel">
 												
-												<div class="container pt-0 mt-2">
+												<div class="">
 														<div class="row mt-0">
 																<div class="col-md-12">
 																		<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 																				<div class="carousel-inner">
 																					<div class="carousel-item active">
 																							<div class="card-deck">
-																									<div class="card">
+																									<div class="card pb-card">
 																										<div class="card-body">
-																											<h4 class="card-title">Card title</h4>
-																											<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+																											<img alt="img" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_168b9874edc%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_168b9874edc%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.4296875%22%20y%3D%22104.5%22%3E200x200%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 100%; height: 125px;">
+																											
+																											<p class="txt">Desarrollo de chat para Restaurant.</p>
+																											<button class="send btn-primary btn-circle mx-auto" style="width: 80px;">Ver más</button>
 																										</div>
 																									</div>
 																								
-																									<div class="card">
-																										<div class="card-body">
-																											<h4 class="card-title">Card title</h4>
-																											<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-																										</div>
+																									<div class="card pb-card">
+																											<div class="card-body">
+																													<img alt="img" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_168b9874edc%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_168b9874edc%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.4296875%22%20y%3D%22104.5%22%3E200x200%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 100%; height: 125px;">
+																													
+																													<p class="txt">Desarrollo de chat para Restaurant.</p>
+																													<button class="send btn-primary btn-circle mx-auto" style="width: 80px;">Ver más</button>
+																												</div>
 																									</div>
 																									
 																								</div>
 																					</div>
 																					<div class="carousel-item">
 																							<div class="card-deck">
-																									<div class="card">
-																										<div class="card-body">
-																											<h4 class="card-title">Card title</h4>
-																											<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-																										</div>
+																									<div class="card pb-card">
+																											<div class="card-body">
+																													<img alt="img" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_168b9874edc%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_168b9874edc%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.4296875%22%20y%3D%22104.5%22%3E200x200%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 100%; height: 125px;">
+																													
+																													<p class="txt">Desarrollo de chat para Restaurant.</p>
+																													<button class="send btn-primary btn-circle mx-auto" style="width: 80px;">Ver más</button>
+																												</div>
 																									</div>
 																								
-																									<div class="card">
-																										<div class="card-body">
-																											<h4 class="card-title">Card title</h4>
-																											<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-																										</div>
+																									<div class="card pb-card">
+																											<div class="card-body">
+																													<img alt="img" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_168b9874edc%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_168b9874edc%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.4296875%22%20y%3D%22104.5%22%3E200x200%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 100%; height: 125px;">
+																													
+																													<p class="txt">Desarrollo de chat para Restaurant.</p>
+																													<button class="send btn-primary btn-circle mx-auto" style="width: 80px;">Ver más</button>
+																												</div>
 																									</div>
 																									
 																								</div>
 																					</div>
 																					<div class="carousel-item">
 																							<div class="card-deck">
-																									<div class="card">
-																										<div class="card-body">
-																											<h4 class="card-title">Card title</h4>
-																											<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-																										</div>
+																									<div class="card pb-card">
+																											<div class="card-body">
+																													<img alt="img" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_168b9874edc%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_168b9874edc%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.4296875%22%20y%3D%22104.5%22%3E200x200%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 100%; height: 125px;">
+																													
+																													<p class="txt">Desarrollo de chat para Restaurant.</p>
+																													<button class="send btn-primary btn-circle mx-auto" style="width: 80px;">Ver más</button>
+																												</div>
 																									</div>
 																								
-																									<div class="card">
-																										<div class="card-body">
-																											<h4 class="card-title">Card title</h4>
-																											<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-																										</div>
+																									<div class="card pb-card">
+																											<div class="card-body">
+																													<img alt="img" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_168b9874edc%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_168b9874edc%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.4296875%22%20y%3D%22104.5%22%3E200x200%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 100%; height: 125px;">
+																													
+																													<p class="txt">Desarrollo de chat para Restaurant.</p>
+																													<button class="send btn-primary btn-circle mx-auto" style="width: 80px;">Ver más</button>
+																												</div>
 																									</div>
 																									
 																								</div>
@@ -167,14 +200,7 @@
 	<script type="text/javascript" src="dist/autosize.min.js"></script>
 	<script type="text/javascript" src="dist/jquery.convform.js"></script>
 	<script>
-		function google(stateWrapper, ready) {
-			window.open("https://google.com");
-			ready();
-		}
-		function bing(stateWrapper, ready) {
-			window.open("https://bing.com");
-			ready();
-		}
+
 		var rollbackTo = false;
 		var originalState = false;
 		function storeState(stateWrapper, ready) {
@@ -201,34 +227,32 @@
 				console.log('changed current.next to originalState');
 			}
 			ready();
-		}
-	</script>
-	<script>
+		};
+
 		jQuery(function ($) {
 			var convForm = $('#chat').convform();
 			console.log(convForm);
 		});
 
+		function toggle_visibility(id) {
+			var e = document.getElementById(id);
+			if (e.style.display == 'block')
+				e.style.display = 'none';
+			else
+				e.style.display = 'block';
+		}
 
-	</script>
-	<script>
-		(function ($) {
-			"use strict";
+		$(function () {
+			'use strict';
 
-			// manual carousel controls
-			$('.next').click(function () { $('.carousel').carousel('next'); return false; });
-			$('.prev').click(function () { $('.carousel').carousel('prev'); return false; });
+			$('.bot-button').click(function () {
+				$(this).toggleClass('transformed');
+			});
 
-		})(jQuery);</script>
-
-	<script>
-		// PREVENT INSIDE MEGA DROPDOWN
-		$('.dropdown-menu').on("click.bs.dropdown", function (e) {
-			e.stopPropagation();
-			e.preventDefault();
 		});
 
 	</script>
+
 
 
 
